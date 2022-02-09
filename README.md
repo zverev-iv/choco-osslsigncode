@@ -1,8 +1,8 @@
-# choco-template
+# choco-osslsigncode
 
-![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000) [![License: Unlicense](https://img.shields.io/badge/License-Unlicense-yellow.svg)](https://raw.githubusercontent.com/zverev-iv/choco-template/main/LICENSE)
+![Version](https://img.shields.io/badge/version-2.2.0-blue.svg?cacheSeconds=2592000) [![License: Unlicense](https://img.shields.io/badge/License-Unlicense-yellow.svg)](https://raw.githubusercontent.com/zverev-iv/choco-osslsigncode/main/LICENSE)
 
-> Simple chocolatey package template with cakebuild.net support
+> Simple chocolatey package for [osslsigncode](https://github.com/mtrojnar/osslsigncode)
 
 ## Author
 

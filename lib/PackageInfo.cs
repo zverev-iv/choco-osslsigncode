@@ -18,30 +18,50 @@ public class PackageInfo
         get => new ChocolateyPackSettings
         {
             //PACKAGE SPECIFIC SECTION
-            Id = "template",
-            Version = "0.0.1",
-            PackageSourceUrl = new Uri("https://github.com/user/choco-template/"),
+            Id = "osslsigncode",
+            Version = "2.2.0",
+            PackageSourceUrl = new Uri("https://github.com/zverev-iv/choco-osslsigncode"),
             Owners = new[] {
-                "Contoso"
+                "zverev-iv"
                 },
             //SOFTWARE SPECIFIC SECTION
-            Title = "Template",
+            Title = "Osslsigncode",
             Authors = new[] {
-                "Authors"
+                "Michał Trojnara"
                 },
-            Copyright = "year, Company",
-            ProjectUrl = new Uri("https://template.com"),
-            ProjectSourceUrl = new Uri("https://github.com/user/template/"),
-            IconUrl = new Uri("http://cdn.rawgit.com/user/template/master/icons/template.png"),
-            DocsUrl = new Uri("https://github.com/user/template/blob/master/README.md"),
-            BugTrackerUrl = new Uri("https://github.com/user/template/"),
-            MailingListUrl = new Uri("https://github.com/user/template/"),
-            LicenseUrl = new Uri("https://github.com/user/template/blob/master/LICENSE.md"),
+            Copyright = "2005-2014 Per Allansson, 2018-2019 Michał Trojnara",
+            ProjectUrl = new Uri("https://github.com/mtrojnar/osslsigncode"),
+            DocsUrl = new Uri("https://github.com/mtrojnar/osslsigncode#readme"),
+            BugTrackerUrl = new Uri("https://github.com/mtrojnar/osslsigncode/issues"),
+            LicenseUrl = new Uri("https://raw.githubusercontent.com/mtrojnar/osslsigncode/master/LICENSE.txt"),
             RequireLicenseAcceptance = false,
-            Summary = "Excellent summary of what the package does",
-            Description = "The description of the package",
+            Summary = "osslsigncode is a small tool that implements authenticode signing and timestamping",
+            Description = @"## WHAT IS IT?
+
+osslsigncode is a small tool that implements part of the functionality
+of the Microsoft tool signtool.exe - more exactly the Authenticode
+signing and timestamping. But osslsigncode is based on OpenSSL and cURL,
+and thus should be able to compile on most platforms where these exist.
+
+## WHY?
+
+Why not use signtool.exe? Because I don't want to go to a Windows
+machine every time I need to sign a binary - I can compile and build
+the binaries using Wine on my Linux machine, but I can't sign them
+since the signtool.exe makes good use of the CryptoAPI in Windows, and
+these APIs aren't (yet?) fully implemented in Wine, so the signtool.exe
+tool  would fail. And, so, osslsigncode was born.
+
+## WHAT CAN IT DO?
+
+It can sign and timestamp PE (EXE/SYS/DLL/etc), CAB, CAT and MSI files.
+It supports the equivalent of signtool.exe's ""-j javasign.dll -jp low"",
+i.e. add a valid signature for a CAB file containing Java files.
+It supports getting the timestamp through a proxy as well. It also
+supports signature verification, removal and extraction.
+",
             ReleaseNotes = new[] {
-                "https://github.com/user/template/releases"
+                "https://github.com/mtrojnar/osslsigncode/releases/"
                 },
             Files = new[] {
                 new ChocolateyNuSpecContent {
@@ -50,20 +70,18 @@ public class PackageInfo
                     }
                 },
             Tags = new[] {
-                "Cake",
-                "Script",
-                "Build"
+                "OpenSSL",
+                "signtool",
+                "Authenticode",
+                "signing",
+                "timestamp",
+                "PE",
+                "EXE",
+                "SYS",
+                "DLL",
+                "CAB",
+                "MSI"
                 },
-
-            //Cake internal settings
-            //Debug = false,
-            //Verbose = false,
-            //Force = false,
-            //Noop = false,
-            //LimitOutput = false,
-            //ExecutionTimeout = 13,
-            //CacheLocation = @"C:\temp",
-            //AllowUnofficial = false
 
         };
     }
