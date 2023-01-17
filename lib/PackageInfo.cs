@@ -19,7 +19,7 @@ public class PackageInfo
         {
             //PACKAGE SPECIFIC SECTION
             Id = "osslsigncode",
-            Version = "2.2.0",
+            Version = PackageVersion,
             PackageSourceUrl = new Uri("https://github.com/zverev-iv/choco-osslsigncode"),
             Owners = new[] {
                 "zverev-iv"

@@ -14,8 +14,9 @@ var target = Argument("target", "Publish");
 
 Setup<PackageInfo>(setupContext => new PackageInfo
 {
-    PackageVersion = Argument("packageVersion", "2.2.0"),
-    Package64Url = Argument("url64bit", "https://github.com/mtrojnar/osslsigncode/releases/download/2.2/osslsigncode_2.2_windows.zip")
+    PackageVersion = Argument("packageVersion", "2.5.0"),
+    Package32Url = Argument("url", "https://github.com/mtrojnar/osslsigncode/releases/download/2.5/osslsigncode-2.5-windows-x86-vs.zip"),
+    Package64Url = Argument("url64bit", "https://github.com/mtrojnar/osslsigncode/releases/download/2.5/osslsigncode-2.5-windows-x64-vs.zip")
 });
 
 Teardown(ctx =>
