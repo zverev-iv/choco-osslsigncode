@@ -1,4 +1,5 @@
-#addin nuget:?package=Cake.FileHelpers&version=4.0.1
+#addin nuget:?package=Cake.FileHelpers&version=6.0.0
+#addin nuget:?package=Cake.Json&version=7.0.1
 
 #load "lib/PackageInfo.cs"
 
@@ -12,12 +13,7 @@ var target = Argument("target", "Publish");
 // SETUP / TEARDOWN
 ///////////////////////////////////////////////////////////////////////////////
 
-Setup<PackageInfo>(setupContext => new PackageInfo
-{
-    PackageVersion = Argument("packageVersion", "2.5.0"),
-    Package32Url = Argument("url", "https://github.com/mtrojnar/osslsigncode/releases/download/2.5/osslsigncode-2.5-windows-x86-vs.zip"),
-    Package64Url = Argument("url64bit", "https://github.com/mtrojnar/osslsigncode/releases/download/2.5/osslsigncode-2.5-windows-x64-vs.zip")
-});
+Setup<PackageInfo>(setupContext => DeserializeJsonFromFile<PackageInfo>("config.json"));
 
 Teardown(ctx =>
 {
@@ -27,6 +23,12 @@ Teardown(ctx =>
 ///////////////////////////////////////////////////////////////////////////////
 // TASKS
 ///////////////////////////////////////////////////////////////////////////////
+
+Task("Print config")
+    .Does<PackageInfo>(data =>
+{
+	Information(SerializeJson<PackageInfo>(data));
+});
 
 Task("Clean")
     .Does<PackageInfo>(data =>
